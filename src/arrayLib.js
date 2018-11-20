@@ -1,7 +1,7 @@
 const map = function(callbackFunction,sourceRecord){
   let mappedRecord = [];
-  for(let index in sourceRecord){
-    mappedRecord[index] = callbackFunction(sourceRecord[index]);
+  for(let value of sourceRecord){
+    mappedRecord.push(callbackFunction(value));
   }
   return mappedRecord;
 }
