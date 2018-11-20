@@ -16,20 +16,27 @@ const sumOfList = function(list){
   return list.reduce(sum);
 }
 
-const mapTest = function(){
+const returnTrue = function(){
+  return true;
+}
+
+describe('map',function(){
   //Testing map for square function 
-  deepEqual(map(square,[]),[]);
-  deepEqual(map(square,[1]),[1]);
-  deepEqual(map(square,[1,2]),[1,4]);
+  it('should return squares of array values',function() {
+    deepEqual(map(square,[]),[]);
+    deepEqual(map(square,[1]),[1]);
+    deepEqual(map(square,[1,2]),[1,4]);
+  });
 
   //Testing map for inputs as string
-  deepEqual(map(stringLength,[]),[]);
-  deepEqual(map(stringLength,["computer"]),[8]);
-  deepEqual(map(stringLength,["computer","abcd"]),[8,4]);
-  
+  it('should find the length of strings in an array',function() {
+    deepEqual(map(stringLength,[]),[]);
+    deepEqual(map(stringLength,["computer"]),[8]);
+    deepEqual(map(stringLength,["computer","abcd"]),[8,4]);
+  });
+
   //Testing map for nested arrays
-  deepEqual(map(sumOfList,[[1,2],[1,2,3]]),[3,6]);
-}
-console.log("testing map functions");
-mapTest();
-console.log("map tests passed");
+  it('should find the sum of lists in arrays',function() {
+    deepEqual(map(sumOfList,[[1,2],[1,2,3]]),[3,6]);
+  });
+});
