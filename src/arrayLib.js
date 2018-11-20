@@ -6,4 +6,15 @@ const map = function(callbackFunction,sourceRecord){
   return mappedRecord;
 }
 
+const filter = function(callbackFunction,sourceRecord){
+  let filteredRecord = [];
+  for(let value of sourceRecord){
+    if(callbackFunction(value)){
+      filteredRecord.push(value);
+    }
+  }
+  return filteredRecord;
+}
+
 exports.map = map;
+exports.filter = filter;

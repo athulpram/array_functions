@@ -1,4 +1,4 @@
-const {map} = require("../src/arrayLib.js");
+const {map,filter} = require("../src/arrayLib.js");
 const {deepEqual} = require("assert");
 
 const square = function(number){
@@ -38,5 +38,11 @@ describe('map',function(){
   //Testing map for nested arrays
   it('should find the sum of lists in arrays',function() {
     deepEqual(map(sumOfList,[[1,2],[1,2,3]]),[3,6]);
+  });
+});
+
+describe('filter',function() {
+  it('should return all the array vlaues',function() {
+    deepEqual(filter(returnTrue,[]),[]);
   });
 });
