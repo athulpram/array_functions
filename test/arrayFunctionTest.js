@@ -20,6 +20,10 @@ const returnTrue = function(){
   return true;
 }
 
+const isOdd = function(value){
+  return value%2;
+}
+
 describe('map',function(){
   //Testing map for square function 
   it('should return squares of array values',function() {
@@ -44,5 +48,15 @@ describe('map',function(){
 describe('filter',function() {
   it('should return all the array vlaues',function() {
     deepEqual(filter(returnTrue,[]),[]);
+    deepEqual(filter(returnTrue,[1]),[1]);
+    deepEqual(filter(returnTrue,[1,2]),[1,2]);
+    deepEqual(filter(returnTrue,[1,2,3]),[1,2,3]);
+  });
+
+  it('should return odd number',function() {
+    deepEqual(filter(isOdd,[1]),[1]);
+    deepEqual(filter(isOdd,[1,2]),[1]);
+    deepEqual(filter(isOdd,[1,2,3]),[1,3]);
+
   });
 });
