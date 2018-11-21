@@ -64,5 +64,7 @@ describe('filter',function() {
 describe('Reduce',function(){
   it('should return sum of array',function(){
     deepEqual(reduce(sum,[]),undefined);
+    deepEqual(reduce(sum,[1]),1);
+    deepEqual(reduce(sum,[1,2,3]),6);
   });
 });

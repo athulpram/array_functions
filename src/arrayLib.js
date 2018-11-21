@@ -23,7 +23,7 @@ const reduce = function(callbackFunction,sourceArray,accumulator){
     accumulator=sourceArray[0];
   }
   while(index<sourceArray.length){
-    accumulator=callbackFunction(accumulator,value);
+    accumulator=callbackFunction(accumulator,sourceArray[index++]);
   }
   return accumulator;
 }
