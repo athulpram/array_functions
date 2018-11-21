@@ -16,12 +16,10 @@ const sumOfList = function(list){
   return list.reduce(sum);
 }
 
-const returnTrue = function(){
-  return true;
-}
-
-const returnFalse = function(){
-  return false;
+const makeConstant = function(constant){
+  return function(){
+    return constant;
+  }
 }
 
 const isOdd = function(value){
@@ -36,10 +34,10 @@ const greater = function(num1,num2){
 }
 describe('map',function(){
   //Testing map for square function 
-  it('',function() {
+  it('Should return empty array for a empty array',function() {
     deepEqual(map(square,[]),[]);
     deepEqual(map(stringLength,[]),[]);
-    deepEqual(filter(returnTrue,[]),[]);
+    deepEqual(filter(makeConstant(true),[]),[]);
   });
 
   //Testing map for inputs as string
@@ -59,23 +57,23 @@ describe('map',function(){
 
 describe('filter',function() {
   it('should return an empty array for a empty array input',function() {
-    deepEqual(filter(returnTrue,[]),[]);
-    deepEqual(filter(returnFalse,[]),[]);
+    deepEqual(filter(makeConstant(true),[]),[]);
+    deepEqual(filter(makeConstant(false),[]),[]);
     deepEqual(filter(isOdd,[]),[]);
   });
   it('should return the same element array for an input of one element which returns true for element',function() {
-    deepEqual(filter(returnTrue,[1]),[1]);
+    deepEqual(filter(makeConstant(true),[1]),[1]);
     deepEqual(filter(isOdd,[1]),[1]);
   });
 
   it('should return empty array for an element array of which returns false for filter',function(){
-    deepEqual(filter(returnFalse,[1]),[]);
+    deepEqual(filter(makeConstant(false),[1]),[]);
     deepEqual(filter(isOdd,[2]),[]);
   });
 
   it('should return odd number',function() {
-    deepEqual(filter(returnTrue,[1,2,3]),[1,2,3]);
-    deepEqual(filter(returnFalse,[1,2]),[]);
+    deepEqual(filter(makeConstant(true),[1,2,3]),[1,2,3]);
+    deepEqual(filter(makeConstant(false),[1,2]),[]);
     deepEqual(filter(isOdd,[1,2]),[1]);
   });
 });
