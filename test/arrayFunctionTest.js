@@ -24,6 +24,12 @@ const isOdd = function(value){
   return value%2;
 }
 
+const greater = function(num1,num2){
+  if(num1>num2){
+    return num1;
+  }
+  return num2;
+}
 describe('map',function(){
   //Testing map for square function 
   it('should return squares of array values',function() {
@@ -67,5 +73,10 @@ describe('Reduce',function(){
     deepEqual(reduce(sum,[1]),1);
     deepEqual(reduce(sum,[1,2,3]),6);
     deepEqual(reduce(sum,[1,2,3],5),11);
+  });
+  it('should return greatest of array',function(){
+    deepEqual(reduce(greater,[]),undefined);
+    deepEqual(reduce(greater,[1]),1);
+    deepEqual(reduce(greater,[1,2,3]),3);
   });
 });
