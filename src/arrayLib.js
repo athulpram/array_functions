@@ -17,7 +17,7 @@ const filter = function(callbackFunction,sourceRecord){
 }
 
 const reduce = function(callbackFunction,sourceArray,accumulator){
-  index=0;
+  let index=0;
   if(!accumulator){
     index=1;
     accumulator=sourceArray[0];
