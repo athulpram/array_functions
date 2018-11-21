@@ -16,5 +16,18 @@ const filter = function(callbackFunction,sourceRecord){
   return filteredRecord;
 }
 
+const reduce = function(callbackFunction,sourceArray,accumulator){
+  index=0;
+  if(!accumulator){
+    index=1;
+    accumulator=sourceArray[0];
+  }
+  while(index<sourceArray.length){
+    accumulator=callbackFunction(accumulator,value);
+  }
+  return accumulator;
+}
+
 exports.map = map;
 exports.filter = filter;
+exports.reduce = reduce;

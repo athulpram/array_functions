@@ -1,4 +1,4 @@
-const {map,filter} = require("../src/arrayLib.js");
+const {map,filter,reduce} = require("../src/arrayLib.js");
 const {deepEqual} = require("assert");
 
 const square = function(number){
@@ -58,5 +58,11 @@ describe('filter',function() {
     deepEqual(filter(isOdd,[1,2]),[1]);
     deepEqual(filter(isOdd,[1,2,3]),[1,3]);
 
+  });
+});
+
+describe('Reduce',function(){
+  it('should return sum of array',function(){
+    deepEqual(reduce(sum,[]),undefined);
   });
 });
