@@ -66,5 +66,6 @@ describe('Reduce',function(){
     deepEqual(reduce(sum,[]),undefined);
     deepEqual(reduce(sum,[1]),1);
     deepEqual(reduce(sum,[1,2,3]),6);
+    deepEqual(reduce(sum,[1,2,3],5),11);
   });
 });
