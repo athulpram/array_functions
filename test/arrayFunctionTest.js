@@ -75,9 +75,8 @@ describe('filter',function() {
 
   it('should return odd number',function() {
     deepEqual(filter(returnTrue,[1,2,3]),[1,2,3]);
-    deepEqual(filter(returnFalse,[1,2]),[1]);
+    deepEqual(filter(returnFalse,[1,2]),[]);
     deepEqual(filter(isOdd,[1,2]),[1]);
-
   });
 });
 
