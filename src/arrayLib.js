@@ -17,13 +17,13 @@ const filter = function(predicate,sourceRecord){
 }
 
 const reduce = function(reducer,sourceArray,accumulator){
-  index=0;
-  if(!accumulator){
-    index=1;
+  if(accumulator==undefined){
     accumulator=sourceArray[0];
+    sourceArray=sourceArray.slice(1);
   }
-  while(index<sourceArray.length){
-    accumulator=reducer(accumulator,sourceArray[index++]);
+  if(sourceArray.length>0){
+    accumulator = reducer(accumulator,sourceArray[0]);
+    accumulator = reduce(reducer,sourceArray.slice(1),accumulator);
   }
   return accumulator;
 }
