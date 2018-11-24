@@ -6,6 +6,16 @@ const map = function(mapper,sourceRecord){
   return mappedRecord;
 }
 
+const mapRecursive = function(mapper,sourceRecord){
+  let mappedRecord = [];
+  if(sourceRecord.length){
+    mappedRecord = mapRecursive(mapper,sourceRecord.slice(1));
+    mappedRecord.unshift(mapper(sourceRecord[0]))
+  }
+  return mappedRecord;
+}
+
+
 const filter = function(predicate,sourceRecord){
   let filteredRecord = [];
   for(let value of sourceRecord){
@@ -28,6 +38,6 @@ const reduce = function(reducer,sourceArray,accumulator){
   return accumulator;
 }
 
-exports.map = map;
+exports.map = mapRecursive;
 exports.filter = filter;
 exports.reduce = reduce;
